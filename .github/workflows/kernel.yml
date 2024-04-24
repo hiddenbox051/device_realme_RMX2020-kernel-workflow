@@ -8,13 +8,17 @@ on:
           required: true
       branch:
           description: 'Kernel source branch'
-          required: true   
+          required: true
+      token:
+          description: 'github token'
+          required: true
+
 
 env:
   TZ: Asia/Kolkata
   REPO: ${{ github.event.inputs.repo }}
   BRANCH: ${{ github.event.inputs.branch }}
-  GITHUB_TOKEN: ${{ secrets.TOKEN }}
+  GITHUB_TOKEN: ${{ github.event.inputs.token }}
 
 jobs:
   kernel-build:
@@ -41,7 +45,7 @@ jobs:
           curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
           bash build.sh
           git clone https://"alex5402":"${GITHUB_TOKEN}"@github.com/alex5402/device_realme_RMX2020-kernel-workflow push
-          cp -r out/arch/arm64/boot/Image.gz push
+          cp -r AnyKernel/OSS-KERNEL-RMX2020-NEOLIT.zip push
           cd push
           git add .
           git commit -m "RMX2020-kernel: Update kernel prebuilts" -m "- Build Date: $(date)" -s
