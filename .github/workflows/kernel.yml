@@ -38,6 +38,7 @@ jobs:
           git clone $REPO -b $BRANCH kernel 
           cd kernel
           rm -rf .git
+          curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
           bash build.sh
           git clone https://"alex5402":"${GITHUB_TOKEN}"@github.com/alex5402/kernel_realme_RMX2020 push
           cp -r out/arch/arm64/boot/Image.gz push
