@@ -45,7 +45,7 @@ jobs:
           curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
           bash build.sh
           git clone https://"alex5402":"${GITHUB_TOKEN}"@github.com/alex5402/device_realme_RMX2020-kernel-workflow push
-          cp -r AnyKernel/OSS-KERNEL-RMX2020-NEOLIT.zip push
+          cp -r AnyKernel/OSS-KERNEL-RMX2020-NEOLIT-KSU.zip push
           cd push
           git add .
           git commit -m "RMX2020-kernel: Update kernel prebuilts" -m "- Build Date: $(date)" -s
